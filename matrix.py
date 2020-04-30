@@ -6,6 +6,8 @@ class Vector:
             shape (int): number of entries
             value (List, optional): Value to initialize the vector with. Defaults to None.
         """
+        self.shape = shape
+        # If value is passed in, then value has the `shape` number of entries
         raise NotImplementedError('Delete this once implemented.')
 
     def __getitem__(self, index):
@@ -28,6 +30,8 @@ class Vector:
         Returns:
             Vector: The result of v_1 + v_2
         """
+        # Can access v_1.shape and v_2.shape
+        # Should throw an error when v_1 and v_2 have different shapes
         raise NotImplementedError('Delete this once implemented.')
 
     @classmethod
@@ -41,6 +45,8 @@ class Vector:
         Returns:
             Vector: The result of v_1 @ v_2, i.e. the dot product
         """
+        # Can access v_1.shape and v_2.shape
+        # Should throw an error when v_1 and v_2 have different shapes
         raise NotImplementedError('Delete this once implemented.')
 
 
@@ -52,6 +58,7 @@ class Matrix(Vector):
             shape (Tuple(int)): shape of the matrix
             value (List, optional): Value to initialize the vector with. Defaults to None.
         """
+        # List of vectors
         raise NotImplementedError('Delete this once implemented.')
 
     def transpose(self):
@@ -82,6 +89,14 @@ class Matrix(Vector):
         Returns:
             Matrix: Result of `m_1` @ `m_2`
         """
+        # Construct a matrix with the correct shape
+        # Verify that shapes match up
+        m_2.transpose()
+        for v_1 in m_1:  # v_1 is an instance of the Vector class
+            for v_2 in m_2:  # v_2 is an instance of the Vector class
+                result = Vector.dot(v_1, v_2)
+                # Set the resulting matrix entry to be result at whatever particular position
+        m_2.transpose()
         raise NotImplementedError('Delete this once implemented.')
 
 
